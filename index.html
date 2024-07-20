@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-do List</title>
+    <style>
+    body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.screen{
+    height: 500px;
+    padding: 5px;
+    width: 98%;
+    background-color: aqua;
+}
+input{
+    height: 30px;
+    width: 100%;
+    border: none;
+}
+button{
+    background-color: yellow;
+    color: black;
+    height: 60px;
+}
+button:hover{
+    cursor:pointer
+}
+.list{
+    height: 600px;
+    width: 600px;
+    padding: 10px;
+    background-color: aquamarine;
+}
+button{
+    height:30px;
+    border: none;
+    margin: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="list">
+        <label>Enter task: </label>
+        <input class = "input" style="width: 100%;">
+        <div><button type = "submit" onclick="addTask()">Add Task</button>
+        <button type = "submit" onclick = "clearTask()">Clear</button>
+        <div class = "screen"></div>
+    </div>
+ <script >
+    let arr = [];
+
+function addTask(){
+    var val = document.getElementsByClassName("input")[0].value;
+    console.log(val);
+    arr.push(val);
+    document.getElementsByClassName("input")[0].value = '';
+    var result = document.getElementsByClassName("screen")[0];
+    result.innerHTML = arr.join('<br>');
+}
+
+function clearTask(){
+    document.getElementsByClassName("screen")[0].innerHTML = " ";
+}
+ </script>   
+</body>
+</html>
